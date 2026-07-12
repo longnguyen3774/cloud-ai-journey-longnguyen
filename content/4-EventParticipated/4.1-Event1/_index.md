@@ -22,48 +22,48 @@ pre: " <b> 4.1. </b> "
 ### Speakers
 
 - **Khang Nguyen**
-- **Thịnh Nguyễn**
-- **Nguyễn Phương Thảo**
-- **Hoàng Long**
+- **Thinh Nguyen**
+- **Nguyen Phuong Thao**
+- **Hoang Long**
 
 ---
 
 ### Event Overview
 
-The Kick-off event marked the official start of the **AWS First Cloud Journey Workforce** program - a space where speakers shared their personal learning methods, mental frameworks, and the mindset shifts that have shaped the way they absorb and apply knowledge in the real world.
+This Kick-off session served as the formal launch of the **AWS First Cloud Journey Workforce** initiative. The presenters focused on sharing their personal study strategies, cognitive frameworks, and crucial shifts in mindset that enabled them to effectively absorb and apply technological concepts in real-world scenarios.
 
-Key topics discussed:
+The primary discussions centered around:
 
-- **Personal learning methods**: Each speaker shared how they build their own learning roadmap - setting goals, breaking down knowledge, and reinforcing through practice.
-- **Thinking frameworks**: Structured frameworks used to approach problems systematically, rather than learning topics in isolation.
-- **Mindset shifts**: Key turning points in perspective - from passive to active learning, from knowing to applying.
-- **Diversity of perspectives**: The richness of viewpoints from different people in the same room made for a genuinely inspiring experience. Every story carried a different lesson.
+- **Individual study strategies**: The presenters explained how they structure their personal learning paths—defining objectives, dissecting complex topics, and cementing knowledge through hands-on practice.
+- **Cognitive frameworks**: Systematic mental approaches to problem-solving, avoiding fragmented learning in favor of structured comprehension.
+- **Evolution of mindset**: Critical changes in attitude, shifting from passive absorption to active application of knowledge.
+- **Multi-angle insights**: Hearing diverse experiences from different professionals in the room made the session highly motivating. Each journey offered unique insights.
 
 ---
 
 ### Key Takeaways
 
 #### On Learning
-- There is no single "best" learning method - what matters is **finding what works for you** and staying consistent.
-- **Sharing your learning journey** not only reinforces your own understanding but also creates value for others.
-- **Learning by doing** is always more effective than studying theory alone - especially with technology like AWS.
+- No single learning technique fits everyone; the key is to **discover a method that matches your style** and commit to it.
+- **Documenting and sharing your progress** not only solidifies your own understanding but also supports peers on a similar track.
+- **Hands-on practice** is far more powerful than passive reading—especially when mastering cloud technologies like AWS.
 
 #### On Mindset
-- **Growth mindset** is the foundation: anything can be learned with enough patience and persistence.
-- Asking **"Why?"** before **"How?"** leads to deeper understanding rather than just following formulas.
-- Don't fear mistakes - **failure is data, not a dead end**.
+- A **development-oriented attitude** is critical: with sufficient dedication and time, any skill can be acquired.
+- Prioritizing **"Why"** a technology is used before figuring out **"How"** to run it leads to robust understanding rather than rote memorization.
+- View errors as valuable feedback—**mistakes are just data points for correction, not failures**.
 
 #### On Community
-- A strong environment - where people learn and share together - can **multiply individual growth**.
-- Staying connected with others on the same journey helps sustain long-term motivation.
+- Being part of an active learning network—where knowledge is openly exchanged—**significantly accelerates personal growth**.
+- Maintaining active communication with fellow learners keeps motivation high over the long term.
 
 ---
 
 ### Personal Reflection
 
-This was my first time attending a Kick-off event in this format - not a technical workshop, but a space to **listen and reflect**. What struck me most wasn't the depth of technical knowledge, but the way each speaker told their story - honest, relatable, and real.
+Participating in a Kick-off of this style was a fresh experience for me. Rather than a hands-on technical lab, it offered a valuable opportunity to **listen and gain perspective**. I was particularly impressed by the authenticity of the presenters as they shared their real struggles and achievements.
 
-I left the event with a few things I wanted to change in my own learning approach - starting with the smallest habits.
+The session motivated me to adjust my day-to-day learning habits, starting with small, manageable changes in my routine.
 
 ---
 

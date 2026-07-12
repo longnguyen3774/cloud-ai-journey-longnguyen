@@ -7,17 +7,17 @@ chapter: false
 
 # Báo cáo thực tập
 ### Thông tin sinh viên 1:
-&emsp; **Họ và tên:** Huỳnh Thái Linh
+&emsp; **Họ và tên:** Trần Trọng Thành
 
-&emsp; **Số điện thoại:** 0941595061
+&emsp; **Số điện thoại:** 0966777941
 
-&emsp; **Email:** huynhthailinh0604@gmail.com
+&emsp; **Email:** trongthanh1152004@gmail.com
 
 &emsp; **Trường:** Đại học Công Nghệ TP.HCM
 
 &emsp; **Ngành:** Khoa học dữ liệu
 
-&emsp; **Lớp:** AWS042026
+&emsp; **Lớp:** 22DKHA1
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
 
@@ -25,22 +25,22 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 20/04/2026 đến ngày 15/07/2026
 
-![Ảnh đại diện của bạn](/images/avt.JPG?width=300px)
+![Ảnh đại diện của bạn](/images/avatar1.png)
 
 ---
 
 ### Thông tin sinh viên 2:
-&emsp; **Họ và tên:** Nguyễn Ngọc Quỳnh Anh
+&emsp; **Họ và tên:** Nguyễn Phi Long
 
-&emsp; **Số điện thoại:** 0376654308
+&emsp; **Số điện thoại:** 0786990980
 
-&emsp; **Email:** quynhanhnguyenngoc081@gmail.com
+&emsp; **Email:** longnguyen3774@gmail.com
 
 &emsp; **Trường:** Đại học Công Nghệ TP.HCM
 
 &emsp; **Ngành:** Khoa học dữ liệu
 
-&emsp; **Lớp:** AWS042026
+&emsp; **Lớp:** 22DKHA1
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
 
@@ -48,22 +48,22 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 20/04/2026 đến ngày 15/07/2026
 
-![Ảnh đại diện sinh viên 2](/images/avatar2.JPG?width=300px)
+![Ảnh đại diện sinh viên 2](/images/avatar2.jpg)
 
 ---
 
 ### Thông tin sinh viên 3:
-&emsp; **Họ và tên:** Phạm Quốc An
+&emsp; **Họ và tên:** Trần Tuấn Kiệt
 
-&emsp; **Số điện thoại:** 0909 183 617
+&emsp; **Số điện thoại:** 0392128734
 
-&emsp; **Email:** pquocan21@gmail.com
+&emsp; **Email:** tuankiet1149@gmail.com
 
 &emsp; **Trường:** Đại học Công Nghệ TP.HCM
 
 &emsp; **Ngành:** Khoa học dữ liệu
 
-&emsp; **Lớp:** AWS042026
+&emsp; **Lớp:** 22DKHA1
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
 
@@ -71,7 +71,53 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 20/04/2026 đến ngày 15/07/2026
 
-![Ảnh đại diện sinh viên 3](/images/avatar3.jpg?width=300px)
+![Ảnh đại diện sinh viên 3](/images/avatar3.jpg)
+
+---
+
+### Thông tin sinh viên 4:
+&emsp; **Họ và tên:** Bạch Quang Tùng
+
+&emsp; **Số điện thoại:** 0775600297
+
+&emsp; **Email:** bachquangtung162@gmail.com
+
+&emsp; **Trường:** Đại học Công Nghệ TP.HCM
+
+&emsp; **Ngành:** Khoa học dữ liệu
+
+&emsp; **Lớp:** 22DKHA1
+
+&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
+
+&emsp; **Vị trí thực tập:** FCJ Data Engineer Intern
+
+&emsp; **Thời gian thực tập:** Từ ngày 20/04/2026 đến ngày 15/07/2026
+
+![Ảnh đại diện sinh viên 4](/images/avatar4.jpg)
+
+---
+
+### Thông tin sinh viên 5:
+&emsp; **Họ và tên:** Luyện Huy Mạnh
+
+&emsp; **Số điện thoại:** 0773488198
+
+&emsp; **Email:** manh.luyen2512@gmail.com
+
+&emsp; **Trường:** Đại học Công Nghệ TP.HCM
+
+&emsp; **Ngành:** Công Nghệ Phần Mềm
+
+&emsp; **Lớp:** 22DTHG8
+
+&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
+
+&emsp; **Vị trí thực tập:** FCJ Data Engineer Intern
+
+&emsp; **Thời gian thực tập:** Từ ngày 20/04/2026 đến ngày 15/07/2026
+
+![Ảnh đại diện sinh viên 5](/images/avatar5.jpg)
 
 ### Nội dung báo cáo
 

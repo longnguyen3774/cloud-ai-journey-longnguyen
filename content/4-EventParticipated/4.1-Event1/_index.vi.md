@@ -30,44 +30,43 @@ pre: " <b> 4.1. </b> "
 
 ### Nội Dung Sự Kiện
 
-Buổi Kick-off là sự kiện mở đầu chính thức cho hành trình **AWS First Cloud Journey Workforce** - nơi các diễn giả chia sẻ về phương pháp học tập của bản thân, các framework tư duy, và những thay đổi trong mindset đã định hình cách họ tiếp thu và ứng dụng kiến thức trong thực tế.
+Buổi Kick-off đã chính thức khởi động chương trình **AWS First Cloud Journey Workforce**. Tại đây, các diễn giả đã mang đến những câu chuyện thực tế về cách tự học, các mô hình tư duy hiệu quả, cũng như sự thay đổi trong nhận thức giúp họ tiếp cận và làm chủ kiến thức công nghệ trong môi trường thực tiễn.
 
-Các chủ đề chính được thảo luận:
+Những nội dung thảo luận trọng tâm bao gồm:
 
-- **Phương pháp học tập cá nhân**: Mỗi diễn giả chia sẻ cách họ tự xây dựng lộ trình học tập hiệu quả - từ cách đặt mục tiêu, chia nhỏ kiến thức, đến cách thực hành và củng cố.
-- **Framework tư duy**: Các khuôn khổ tư duy được áp dụng để tiếp cận vấn đề một cách có hệ thống, thay vì học rời rạc theo từng chủ đề.
-- **Thay đổi mindset**: Những bước chuyển mình quan trọng trong tư duy - từ tư duy tiêu cực sang tích cực, từ học để biết sang học để ứng dụng.
-- **Sự đa dạng quan điểm**: Sự phong phú của góc nhìn từ nhiều người trong cùng một không gian đã tạo nên một nguồn cảm hứng thực sự. Mỗi câu chuyện là một bài học khác nhau.
+- **Xây dựng lộ trình học tập**: Các diễn giả chia sẻ cách thiết lập mục tiêu cá nhân, chia tách kiến thức thành các phần nhỏ dễ tiếp thu và củng cố thông qua thực hành liên tục.
+- **Hệ thống hóa tư duy**: Áp dụng các mô hình tư duy để giải quyết vấn đề một cách bài bản, tránh việc tiếp thu kiến thức rời rạc, thiếu kết nối.
+- **Chuyển biến về nhận thức**: Quá trình thay đổi thái độ học tập—từ tiếp thu thụ động sang chủ động ứng dụng kiến thức vào thực tế.
+- **Góc nhìn đa chiều**: Những câu chuyện thực tế khác nhau từ các diễn giả đã truyền cảm hứng mạnh mẽ, mang lại nhiều bài học giá trị cho người tham dự.
 
 ---
 
 ### Bài Học Rút Ra
 
-#### Về cách học
-- Không có một phương pháp học tập nào là "đúng nhất" - điều quan trọng là **tìm ra cách phù hợp với bản thân** và kiên trì với nó.
-- Việc **chia sẻ hành trình học tập** với người khác không chỉ giúp mình ghi nhớ tốt hơn mà còn tạo ra giá trị cho cộng đồng.
-- **Học qua thực hành** luôn hiệu quả hơn chỉ đọc lý thuyết - đặc biệt với công nghệ như AWS.
+#### Về phương pháp học
+- Không tồn tại một công thức học tập vạn năng—điều quan trọng là **tìm ra phương pháp phù hợp nhất với bản thân** và duy trì sự đều đặn.
+- **Chia sẻ kiến thức** và quá trình tự học không chỉ giúp bản thân khắc sâu bài học mà còn hỗ trợ cộng đồng cùng phát triển.
+- **Thực hành thực tế** luôn mang lại hiệu quả vượt trội so với việc chỉ học lý thuyết suông, đặc biệt là đối với các dịch vụ đám mây của AWS.
 
 #### Về tư duy
-- **Growth mindset** - tư duy phát triển - là nền tảng: mọi thứ đều có thể học được nếu đủ kiên nhẫn.
-- Đặt câu hỏi **"Tại sao?"** trước **"Làm thế nào?"** giúp hiểu vấn đề sâu hơn, thay vì chỉ học theo công thức.
-- Không sợ sai - **thất bại là dữ liệu, không phải kết thúc**.
+- **Tư duy cầu tiến (Growth mindset)** là chìa khóa: bất kỳ công nghệ nào cũng có thể chinh phục được nếu có sự kiên trì và định hướng đúng.
+- Luôn đặt câu hỏi **"Tại sao?"** trước khi tìm hiểu **"Làm như thế nào?"** để hiểu sâu sắc bản chất vấn đề thay vì máy móc áp dụng công thức.
+- Xem sai sót là cơ hội cải thiện—**mỗi lần thất bại là một nguồn dữ liệu quý giá để tối ưu hóa**.
 
 #### Về cộng đồng
-- Một môi trường tốt - nơi mọi người cùng học, cùng chia sẻ - có thể **nhân đôi tốc độ phát triển** của mỗi cá nhân.
-- Kết nối với những người cùng hành trình giúp duy trì động lực lâu dài.
+- Hoạt động trong một cộng đồng tích cực—nơi mọi người cùng chia sẻ và học hỏi—sẽ **thúc đẩy tiến độ phát triển của mỗi cá nhân**.
+- Giữ kết nối với những người bạn đồng hành giúp duy trì ngọn lửa đam mê và động lực dài hạn.
 
 ---
 
 ### Cảm Nhận Của Bản Thân
 
-Đây là lần đầu tiên mình tham dự một sự kiện Kick-off theo hình thức này - không phải workshop kỹ thuật, mà là không gian để **lắng nghe và suy ngẫm**. Điều khiến mình ấn tượng nhất không phải là những kiến thức chuyên sâu, mà là cách mỗi diễn giả kể câu chuyện của họ - rất thật, rất gần gũi.
+Đây là lần đầu tiên tôi tham dự một buổi khởi động dự án theo định hướng định hình tư duy và chia sẻ trải nghiệm thay vì một buổi đào tạo kỹ thuật thuần túy. Buổi chia sẻ đã mang lại cho tôi cơ hội tuyệt vời để **lắng nghe và chiêm nghiệm**. Sự chân thành trong cách chia sẻ của các diễn giả là điều làm tôi ấn tượng nhất.
 
-Mình rời sự kiện với một vài điều muốn thay đổi ngay trong cách học của mình - bắt đầu từ những điều nhỏ nhất.
+Sau sự kiện, tôi đã tự rút ra một số điểm cần cải thiện ngay trong thói quen tự học hàng ngày của mình, bắt đầu từ những hành động nhỏ nhất.
 
 ---
 
 ### Hình Ảnh Sự Kiện
 
 ![Kick-off AWS First Cloud Journey Workforce](/images/event1.jpg)
-

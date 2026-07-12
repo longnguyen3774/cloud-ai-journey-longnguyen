@@ -1,83 +1,62 @@
 ---
 title: "Blog 1"
-date: 2026-01-01
+date: 2026-06-24
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# Xây dựng Pipeline CDC Thời Gian Thực: Từ Amazon Aurora sang Amazon S3 Tables với Debezium và Firehose
+# Xây dựng Offline Feature Store trên AWS: Tái sử dụng dữ liệu ML hiệu quả hơn
 
-> **Bài gốc:** [Real-time CDC from Aurora PostgreSQL to Amazon S3 Tables using Debezium and Firehose](https://aws.amazon.com/blogs/big-data/real-time-cdc-from-aurora-postgresql-to-amazon-s3-tables-using-debezium-and-firehose/)
+> **Bài gốc:** [Build an offline feature store using Amazon SageMaker Unified Studio and SageMaker Catalog](https://aws.amazon.com/blogs/machine-learning/build-an-offline-feature-store-using-amazon-sagemaker-unified-studio-and-sagemaker-catalog/)
 
-> **Bài dịch:** [Real-time CDC from Aurora PostgreSQL to Amazon S3 Tables using Debezium and Firehose](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2199216520843308/?rdid=AAZBwZqs23GM5W9s#)
-
----
-
-Trong kỷ nguyên dữ liệu hiện nay, việc tách biệt dữ liệu giao dịch (OLTP) và dữ liệu phân tích (OLAP) là cực kỳ quan trọng. Nếu bạn chạy các truy vấn phân tích nặng nề trực tiếp trên cụm Amazon Aurora, hiệu năng hệ thống giao dịch chắc chắn sẽ bị ảnh hưởng.
-
-Thông thường, chúng ta dùng phương pháp xuất dữ liệu theo lô (batch), nhưng cách này lại tạo ra độ trễ lớn. Bài viết này sẽ giới thiệu cho bạn một giải pháp mạnh mẽ hơn: **Real-time Change Data Capture (CDC)** để đưa dữ liệu từ Aurora PostgreSQL sang **Amazon S3 Tables** dưới định dạng Apache Iceberg, giúp dữ liệu luôn sẵn sàng để truy vấn ngay lập tức.
+> **Bài dịch:** [Build an offline feature store using Amazon SageMaker Unified Studio and SageMaker Catalog](#)
 
 ---
 
-## 1. Tại sao lại là Amazon S3 Tables và Apache Iceberg?
-
-Khác với các phương pháp CDC truyền thống chỉ ghi lại nhật ký thay đổi (append-only), định dạng **Apache Iceberg** cho phép thực hiện các thao tác **cập nhật (update)** và **xóa (delete)** ở cấp độ dòng dữ liệu.
-
-Đặc biệt, **Amazon S3 Tables** còn tự động hóa các công việc bảo trì phức tạp như quản lý snapshot hay nén dữ liệu (compaction), giúp các kỹ sư dữ liệu rảnh tay hơn. Bạn còn có thể sử dụng tính năng **Time Travel** của Iceberg để truy vấn dữ liệu tại một thời điểm trong quá khứ.
+Trong các dự án Machine Learning, việc nhiều nhóm tự tạo và lưu trữ các feature riêng biệt thường dẫn đến tình trạng dữ liệu bị trùng lặp, khó quản lý và thiếu tính nhất quán. Điều này không chỉ làm tăng chi phí vận hành mà còn kéo dài thời gian phát triển mô hình.
 
 ---
 
-## 2. Kiến trúc của hệ thống: 6 thành phần cốt lõi
+## 1. Giải pháp mới từ AWS
 
-Hệ thống được thiết kế tối ưu với 6 bước truyền dẫn dữ liệu:
+AWS giới thiệu cách xây dựng **Offline Feature Store** bằng **Amazon SageMaker Unified Studio** và **SageMaker Catalog**, cho phép lưu trữ, quản lý và chia sẻ các feature ML trong một môi trường tập trung.
 
-| Bước | Từ → Đến | Mô tả |
-|------|----------|-------|
-| 1 | Aurora PostgreSQL → Debezium | Debezium chạy trên MSK Connect đọc thay đổi từ WAL của PostgreSQL, hầu như không gây áp lực hiệu năng |
-| 2 | Debezium → Amazon MSK | `ByLogicalTableRouter` gộp thay đổi từ nhiều bảng vào một Kafka topic - tiết kiệm chi phí và giảm độ phức tạp |
-| 3 | Amazon MSK → Firehose | Amazon Data Firehose liên tục thăm dò dữ liệu từ MSK qua AWS PrivateLink |
-| 4 | AWS Lambda | "Bộ não" chuyển đổi - giải mã dữ liệu, làm phẳng cấu trúc Debezium, gắn metadata (tên bảng + loại thao tác) |
-| 5 | Firehose → S3 Tables | Firehose dựa vào metadata từ Lambda để đẩy vào đúng bảng Iceberg tương ứng |
-| 6 | Truy vấn & Phân quyền | Dữ liệu sẵn sàng truy vấn qua Amazon Athena hoặc Redshift, kiểm soát bởi AWS Lake Formation |
+Thay vì mỗi nhóm phải xây dựng lại cùng một feature nhiều lần, các Data Engineer có thể tạo và công bố feature lên Catalog để các Data Scientist và ML Engineer dễ dàng tìm kiếm và tái sử dụng cho nhiều dự án khác nhau.
 
 ---
 
-## 3. Cơ chế chuyển đổi dữ liệu thông minh
+## 2. Những lợi ích nổi bật
 
-Điểm thú vị nhất của giải pháp nằm ở cách Lambda ánh xạ mã thao tác từ Debezium sang Firehose:
-
-| Mã Debezium | Ý nghĩa | Thao tác Firehose |
-|---|---|---|
-| `c` (Create) / `r` (Read) | Tạo mới | → **Insert** vào bảng Iceberg |
-| `u` (Update) | Cập nhật | → **Upsert** dựa trên khóa chính |
-| `d` (Delete) | Xóa | → **Delete** dòng tương ứng |
-
-Nhờ cơ chế này, bảng đích tại S3 Tables luôn là một **bản sao hoàn hảo** về trạng thái hiện tại của cơ sở dữ liệu nguồn.
+| Lợi ích | Mô tả |
+|---|---|
+| **Tái sử dụng feature hiệu quả** | Các feature đã được xây dựng có thể được chia sẻ giữa nhiều nhóm và nhiều mô hình, giúp giảm công sức xử lý dữ liệu lặp lại. |
+| **Quản lý tập trung** | Toàn bộ feature được lưu trữ và quản lý trong một hệ thống duy nhất, giúp dễ dàng theo dõi nguồn gốc, phiên bản và quyền truy cập. |
+| **Đảm bảo tính nhất quán dữ liệu** | Những feature được sử dụng trong quá trình huấn luyện và đánh giá mô hình luôn có cùng định nghĩa, giảm nguy cơ sai lệch kết quả. |
+| **Tăng tốc phát triển AI/ML** | Data Scientist có thể nhanh chóng tìm kiếm và sử dụng các feature sẵn có thay vì phải xây dựng lại từ đầu, rút ngắn đáng kể thời gian triển khai mô hình. |
 
 ---
 
-## 4. Triển khai nhanh chóng với AWS CDK
+## 3. Cơ chế hoạt động
 
-Thay vì phải cấu hình thủ công từng dịch vụ, bạn có thể triển khai toàn bộ hạ tầng này thông qua mã nguồn với **AWS CDK**. Quy trình bao gồm:
+Giải pháp sử dụng **Amazon S3 Tables** kết hợp với **Apache Iceberg** để lưu trữ dữ liệu feature. Nhờ đó hệ thống hỗ trợ:
+- Quản lý phiên bản dữ liệu (versioning).
+- Truy vấn dữ liệu tại các thời điểm trong quá khứ (time travel).
+- Theo dõi nguồn gốc dữ liệu (data lineage).
+- Chia sẻ feature giữa nhiều dự án và nhóm làm việc.
 
-1. Bật tính năng `logical_replication` trên Aurora.
-2. Đóng gói và đăng ký Debezium plugin trên MSK Connect.
-3. Sử dụng lệnh `cdk deploy` để khởi tạo toàn bộ **6 stack tài nguyên** từ MSK cluster cho đến S3 Tables bucket.
-
-Giải pháp này không chỉ giúp bạn xây dựng một **Data Lakehouse** gần như thời gian thực mà còn cực kỳ tối ưu về chi phí nhờ việc gộp nhiều bảng vào một luồng dữ liệu duy nhất.
+Các feature sau khi được tạo sẽ được đăng ký trong SageMaker Catalog, nơi người dùng có thể tìm kiếm, khám phá và yêu cầu quyền truy cập khi cần.
 
 ---
 
-## Bài học rút ra
+## 4. Ý nghĩa đối với doanh nghiệp
 
-- **CDC + Iceberg = Phân tích thời gian thực mà không gây áp lực lên Aurora**
-- Gộp nhiều bảng vào một Kafka topic giúp tiết kiệm chi phí đáng kể
-- Lambda là cầu nối giữa định dạng Debezium và yêu cầu của Firehose
-- AWS CDK giúp toàn bộ hạ tầng có thể tái tạo và quản lý phiên bản
+Việc xây dựng Offline Feature Store giúp doanh nghiệp chuẩn hóa quy trình quản lý dữ liệu Machine Learning, giảm sự trùng lặp trong quá trình phát triển, tăng khả năng cộng tác giữa các nhóm và đẩy nhanh tốc độ đưa các mô hình AI vào thực tế.
+
+**Tóm lại:** SageMaker Unified Studio và SageMaker Catalog giúp tạo ra một kho lưu trữ feature tập trung, cho phép quản lý, chia sẻ và tái sử dụng dữ liệu hiệu quả hơn, từ đó nâng cao năng suất phát triển các dự án AI/ML trên AWS.
 
 ---
 
 *Hình ảnh minh họa:*
 
-![Blog 1 - Pipeline CDC Thời Gian Thực](/images/blog1.jpg)
+![Blog 1 - Offline Feature Store](/images/Blog1.jpg)

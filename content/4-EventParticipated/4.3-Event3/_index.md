@@ -1,6 +1,6 @@
 ---
 title: "Event 3"
-date: 2026-05-30
+date: 2026-06-13
 weight: 3
 chapter: false
 pre: " <b> 4.3. </b> "
@@ -13,9 +13,9 @@ pre: " <b> 4.3. </b> "
 | Field | Details |
 |-------|---------|
 | **Event Name** | AWS FIRST CLOUD AI JOURNEY MEET UP |
-| **Date & Time** | 09:00, May 30, 2026 |
+| **Date & Time** | 09:00, June 13, 2026 |
 | **Location** | 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City |
-| **Role** | Speaker |
+| **Role** | Attendee |
 
 ---
 
@@ -216,8 +216,4 @@ Hearing the other speakers - from the hidden DevOps layer beneath every project,
 
 ### Event Photos
 
-<div style="display:flex; gap:12px; margin-top:12px;">
-  <img src="/images/speaker1.JPG" style="flex:1; width:33%; border-radius:8px; object-fit:cover;" alt="Speaker 1">
-  <img src="/images/speaker2.JPG" style="flex:1; width:33%; border-radius:8px; object-fit:cover;" alt="Speaker 2">
-  <img src="/images/event3.JPG" style="flex:1; width:33%; border-radius:8px; object-fit:cover;" alt="Event 3">
-</div>
+![AWS First Cloud AI Journey Workshop](/images/event3.JPG)

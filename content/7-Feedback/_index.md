@@ -1,12 +1,10 @@
 ---
 title: "Sharing and Feedback"
-date: 2024-01-01
+date: 2024-07-07
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-
-
 
 > Here, you can freely share your personal opinions about your experience participating in the First Cloud Journey program. This will help the FCJ team improve any shortcomings based on the following aspects:
 
@@ -33,13 +31,21 @@ The company provides an internship allowance and offers flexible working hours w
 ---
 
 ### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+
+* **What did you find most satisfying during your internship?**  
+  Being able to work directly with professional AWS Solution Architects, having access to real AWS sandboxes to deploy infrastructure (RDS, Glue, EC2, Lambda), and successfully building a complete, high-availability storefront coupled with an automated machine learning forecasting pipeline from scratch.
+* **What do you think the company should improve for future interns?**  
+  Organizing more technical workshops on system troubleshooting, cost optimization (FinOps), and production-grade monitoring at the beginning of the internship to help interns ramp up faster.
+* **If recommending to a friend, would you suggest they intern here? Why or why not?**  
+  Yes, absolutely. The learning curve is steep but highly rewarding, the mentorship is world-class, and working with cutting-edge cloud technologies gives interns a massive head start in their cloud careers.
 
 ---
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+
+* **Do you have any suggestions to improve the internship experience?**  
+  It would be fantastic to host a cross-team "Demo Day" at the end of the internship so all First Cloud Journey interns can present their projects, share insights, and network with senior leaders across AWS Vietnam.
+* **Would you like to continue this program in the future?**  
+  Yes, I am highly interested in continuing my journey with AWS, either through joining future developer communities or transitioning into a full-time role.
+* **Any other comments (free sharing):**  
+  I want to express my deepest gratitude to my mentors, the FCJ organizers, and my fellow interns for creating such a supportive and memorable experience.

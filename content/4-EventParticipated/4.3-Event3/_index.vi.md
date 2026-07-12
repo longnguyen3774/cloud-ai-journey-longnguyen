@@ -1,6 +1,6 @@
 ---
 title: "Event 3"
-date: 2026-05-30
+date: 2026-06-13
 weight: 3
 chapter: false
 pre: " <b> 4.3. </b> "
@@ -13,9 +13,9 @@ pre: " <b> 4.3. </b> "
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên sự kiện** | AWS FIRST CLOUD AI JOURNEY MEET UP |
-| **Thời gian** | 09:00, ngày 30/05/2026 |
+| **Thời gian** | 09:00, ngày 13/06/2026 |
 | **Địa điểm** | Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, TP. Hồ Chí Minh |
-| **Vai trò** | Diễn giả *(Speaker)* |
+| **Vai trò** | Người tham dự |
 
 ---
 
@@ -216,8 +216,4 @@ Nghe các diễn giả khác chia sẻ - từ DevOps ẩn dưới bề mặt d�
 
 ### Hình Ảnh Sự Kiện
 
-<div style="display:flex; gap:12px; margin-top:12px;">
-  <img src="/images/speaker1.JPG" style="flex:1; width:33%; border-radius:8px; object-fit:cover;" alt="Speaker 1">
-  <img src="/images/speaker2.JPG" style="flex:1; width:33%; border-radius:8px; object-fit:cover;" alt="Speaker 2">
-  <img src="/images/event3.JPG" style="flex:1; width:33%; border-radius:8px; object-fit:cover;" alt="Event 3">
-</div>
+![AWS First Cloud AI Journey Workshop](/images/event3.JPG)

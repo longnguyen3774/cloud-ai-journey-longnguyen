@@ -1,71 +1,63 @@
 ---
 title: "Blog 2"
-date: 2026-01-01
+date: 2026-06-30
 weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# Quản lý dữ liệu trên AWS: Chấm dứt nỗi lo "phân quyền hai nơi" cho S3 và Lake Formation
+# Tự động hóa quá trình chuyển đổi Machine Learning lên Amazon SageMaker với LeapLogic
 
-> **Bài gốc:** [Access Amazon S3 Data Files Directly Using AWS Lake Formation Permissions](https://aws.amazon.com/blogs/big-data/access-amazon-s3-data-files-directly-using-aws-lake-formation-permissions/)
+> **Bài gốc:** [Impetus LeapLogic's automated path to Amazon SageMaker](https://aws.amazon.com/blogs/apn/impetus-leaplogics-automated-path-to-amazon-sagemaker/)
 
-> **Bài dịch:** [Access Amazon S3 Data Files Directly Using AWS Lake Formation Permissions](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2189246758506951/?rdid=ns4Quvh0bISXoSAa#)
-
----
-
-Nếu bạn là một Data Scientist hay ML Engineer, chắc hẳn bạn đã từng gặp tình huống oái oăm này: Bạn có quyền truy cập vào bảng dữ liệu qua SQL, nhưng khi cần đọc file thô từ Amazon S3 để huấn luyện mô hình, bạn lại bị từ chối vì thiếu quyền trong S3 bucket policy.
-
-Việc phải duy trì song song hai hệ thống chính sách - một bên là Lake Formation cho bảng, một bên là IAM/S3 cho tệp - không chỉ gây tốn thời gian mà còn tiềm ẩn rủi ro **sai lệch quyền hạn (permission drift)**.
+> **Bài dịch:** [Impetus LeapLogic's automated path to Amazon SageMaker](#)
 
 ---
 
-## 1. Bước ngoặt mới: Hợp nhất quyền truy cập
-
-AWS vừa tung ra một tính năng cực kỳ giá trị: **Truy cập trực tiếp các tệp dữ liệu trên S3 bằng chính quyền hạn của AWS Lake Formation**.
-
-Giờ đây, thay vì chỉ có thể dùng lệnh `spark.sql()`, các nhà khoa học dữ liệu có thể trực tiếp sử dụng các hàm lập trình quen thuộc như `spark.read.parquet()` hoặc `spark.read.csv()` trên **Amazon EMR** hay **SageMaker** mà vẫn tuân thủ đúng các quy tắc bảo mật đã thiết lập trong Lake Formation. Mọi quyền hạn hiện nay đều được quản trị tập trung tại **một nơi duy nhất**.
+Nhiều doanh nghiệp hiện nay vẫn đang vận hành các hệ thống Machine Learning trên hạ tầng cũ hoặc môi trường on-premises. Việc chuyển đổi các hệ thống này sang nền tảng đám mây thường mất nhiều thời gian do phải chỉnh sửa mã nguồn, xây dựng lại pipeline dữ liệu và cấu hình hạ tầng mới. Điều này làm tăng chi phí cũng như rủi ro trong quá trình triển khai.
 
 ---
 
-## 2. Tại sao đây là "tin vui" cho các dự án AI và Data?
+## 1. Giải pháp từ AWS và Impetus
 
-Tính năng này mang lại **4 lợi ích cốt lõi** giúp tối ưu hóa quy trình làm việc:
+AWS kết hợp cùng Impetus giới thiệu **LeapLogic**, một nền tảng giúp tự động hóa quá trình chuyển đổi các hệ thống Machine Learning sang **Amazon SageMaker**.
+
+Thay vì phải thực hiện thủ công từng bước, LeapLogic có khả năng phân tích hệ thống hiện tại, chuyển đổi mã nguồn, cấu hình hạ tầng và triển khai trực tiếp lên môi trường AWS. Nhờ đó doanh nghiệp có thể đẩy nhanh quá trình hiện đại hóa hệ thống AI và Machine Learning.
+
+---
+
+## 2. Những lợi ích nổi bật
 
 | Lợi ích | Mô tả |
-|---------|-------|
-| **Hệ thống phân quyền thống nhất** | Truy vấn bảng bằng Athena (SQL) và đọc/ghi file S3 bằng Spark (Programmatic API) chỉ cần một bộ quyền duy nhất |
-| **Sẵn sàng cho Generative AI** | Các pipeline ML giờ đây có thể đọc dữ liệu huấn luyện trực tiếp từ data lake có quản trị, đẩy nhanh tốc độ xây dựng mô hình |
-| **Giảm gánh nặng vận hành** | Đội ngũ Operations không còn phải duy trì các chính sách IAM phức tạp cho từng bucket S3 |
-| **Kiểm toán dễ dàng hơn** | Mọi hoạt động truy cập (cả SQL lẫn trực tiếp qua file) đều được ghi lại thống nhất trong AWS CloudTrail |
+|---|---|
+| **Rút ngắn thời gian chuyển đổi** | Nhiều tác vụ trước đây phải thực hiện thủ công như phân tích hệ thống, chuyển đổi pipeline hay cấu hình hạ tầng được tự động hóa, giúp giảm đáng kể thời gian triển khai. |
+| **Giảm chi phí và công sức** | Doanh nghiệp không cần dành quá nhiều nguồn lực cho việc viết lại toàn bộ hệ thống từ đầu, từ đó tiết kiệm chi phí vận hành và nhân sự. |
+| **Giảm rủi ro khi di chuyển hệ thống** | LeapLogic hỗ trợ kiểm thử và xác thực dữ liệu sau khi chuyển đổi, giúp đảm bảo kết quả trên hệ thống mới tương đồng với hệ thống cũ. |
+| **Tận dụng sức mạnh của Amazon SageMaker** | Sau khi chuyển đổi, doanh nghiệp có thể sử dụng đầy đủ các dịch vụ của SageMaker để xây dựng, huấn luyện, triển khai và giám sát mô hình Machine Learning trên quy mô lớn. |
 
 ---
 
-## 3. Cơ chế hoạt động đằng sau
+## 3. Cơ chế hoạt động
 
-Sức mạnh của tính năng này nằm ở một API mới mang tên **`GetTemporaryDataLocationCredentials()`**, giúp cấp các thông tin xác thực tạm thời dựa trên quyền hạn của người dùng đối với các bảng trong **AWS Glue Data Catalog**. AWS cũng cung cấp một **plugin Java** đặc biệt để tự động hóa việc kiểm tra quyền và cấp credentials mà người dùng không cần phải can thiệp thủ công vào code.
+Giải pháp LeapLogic hoạt động theo bốn bước chính:
 
----
-
-## 4. Một vài lưu ý khi triển khai
-
-Để bắt đầu sử dụng, bạn cần lưu ý các điều kiện kỹ thuật sau:
-
-- **Quyền hạn**: Người dùng cần có quyền `SELECT` trên toàn bộ các hàng và cột của bảng để có thể truy cập file trực tiếp.
-- **Phiên bản hỗ trợ**: Yêu cầu **Amazon EMR 7.13+**, **Boto3 1.42.29+** và **AWS CLI 2.33.1+**.
-- **Giới hạn định dạng**: Định dạng bảng **Apache Iceberg** hiện chưa được hỗ trợ bởi plugin này.
+| Bước | Hoạt động | Mô tả |
+|---|---|---|
+| 1 | **Đánh giá hệ thống hiện tại** | Phân tích kiến trúc dữ liệu, pipeline xử lý và các thành phần liên quan để xác định phương án chuyển đổi phù hợp. |
+| 2 | **Tự động chuyển đổi** | Chuyển đổi mã nguồn, workflow và các quy trình Machine Learning sang các dịch vụ tương ứng trên AWS. |
+| 3 | **Kiểm thử và xác thực** | So sánh dữ liệu và kết quả giữa hệ thống cũ và hệ thống mới nhằm đảm bảo tính chính xác và ổn định. |
+| 4 | **Triển khai lên AWS** | Sau khi hoàn tất kiểm thử, hệ thống được triển khai trên Amazon SageMaker và các dịch vụ AWS liên quan để đưa vào vận hành thực tế. |
 
 ---
 
-## Bài học rút ra
+## 4. Ý nghĩa đối với doanh nghiệp
 
-- Một hệ thống phân quyền duy nhất - không còn phải bảo trì song song giữa Lake Formation và S3 bucket policy
-- `GetTemporaryDataLocationCredentials()` là API làm nên sự khác biệt
-- Đây là tính năng cần thiết cho các team ML đang xây dựng training pipeline trên data lake có quản trị
-- Audit trail được thống nhất - các team tuân thủ sẽ thực sự trân trọng điều này
+Việc sử dụng LeapLogic giúp doanh nghiệp đẩy nhanh quá trình chuyển đổi lên đám mây, giảm chi phí phát triển và nâng cao khả năng mở rộng của các hệ thống Machine Learning. Đồng thời, doanh nghiệp có thể tập trung nhiều hơn vào việc phát triển mô hình AI thay vì xử lý các công việc hạ tầng phức tạp.
+
+**Kết luận:** LeapLogic là giải pháp giúp tự động hóa quá trình chuyển đổi các hệ thống Machine Learning sang Amazon SageMaker. Bằng cách giảm khối lượng công việc thủ công, đảm bảo tính chính xác của dữ liệu và tăng tốc triển khai, giải pháp này hỗ trợ doanh nghiệp hiện đại hóa hạ tầng AI/ML một cách nhanh chóng và hiệu quả hơn trên AWS.
 
 ---
 
 *Hình ảnh minh họa:*
 
-![Blog 2 - Hợp Nhất Quyền S3 & Lake Formation](/images/blog2.jpg)
+![Blog 2 - LeapLogic Migration](/images/Blog2.jpg)

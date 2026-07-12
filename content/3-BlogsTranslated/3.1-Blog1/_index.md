@@ -1,83 +1,62 @@
 ---
 title: "Blog 1"
-date: 2026-01-01
+date: 2026-06-24
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# Building a Real-time CDC Pipeline: From Amazon Aurora to Amazon S3 Tables with Debezium and Firehose
+# Building an Offline Feature Store on AWS: Reusing ML Data More Effectively
 
-> **Original article:** [Real-time CDC from Aurora PostgreSQL to Amazon S3 Tables using Debezium and Firehose](https://aws.amazon.com/blogs/big-data/real-time-cdc-from-aurora-postgresql-to-amazon-s3-tables-using-debezium-and-firehose/)
+> **Original article:** [Build an offline feature store using Amazon SageMaker Unified Studio and SageMaker Catalog](https://aws.amazon.com/blogs/machine-learning/build-an-offline-feature-store-using-amazon-sagemaker-unified-studio-and-sagemaker-catalog/)
 
-> **Translation:** [Real-time CDC from Aurora PostgreSQL to Amazon S3 Tables using Debezium and Firehose](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2199216520843308/?rdid=AAZBwZqs23GM5W9s#)
-
----
-
-In today's data era, separating transactional (OLTP) and analytical (OLAP) data is critically important. Running heavy analytical queries directly on an Amazon Aurora cluster will almost certainly degrade transactional system performance.
-
-Traditionally, batch export is the go-to approach - but it introduces significant latency. This article introduces a more powerful solution: **Real-time Change Data Capture (CDC)** to move data from Aurora PostgreSQL to **Amazon S3 Tables** in Apache Iceberg format, keeping data always ready for immediate query.
+> **Translation:** [Build an offline feature store using Amazon SageMaker Unified Studio and SageMaker Catalog](#)
 
 ---
 
-## 1. Why Amazon S3 Tables and Apache Iceberg?
-
-Unlike traditional CDC methods that only log changes in append-only fashion, the **Apache Iceberg** format supports row-level **update** and **delete** operations.
-
-**Amazon S3 Tables** also automates complex maintenance tasks like snapshot management and data compaction, freeing up data engineers from operational toil. You can also leverage Iceberg's **Time Travel** feature to query data at a specific point in the past.
+In Machine Learning projects, having multiple teams create and store their own separate features often leads to data duplication, management challenges, and a lack of consistency. This not only increases operational costs but also extends the model development lifecycle.
 
 ---
 
-## 2. System Architecture: 6 Core Components
+## 1. The New Solution from AWS
 
-The system is optimized with 6 data transmission steps:
+AWS introduces how to build an **Offline Feature Store** using **Amazon SageMaker Unified Studio** and **SageMaker Catalog**, enabling the storage, management, and sharing of ML features in a centralized environment.
 
-| Step | From → To | Description |
-|------|-----------|-------------|
-| 1 | Aurora PostgreSQL → Debezium | Debezium on MSK Connect reads changes from PostgreSQL WAL with minimal performance impact |
-| 2 | Debezium → Amazon MSK | `ByLogicalTableRouter` merges changes from multiple tables into one Kafka topic - reducing cost and operational complexity |
-| 3 | Amazon MSK → Firehose | Amazon Data Firehose continuously polls data from MSK via AWS PrivateLink |
-| 4 | AWS Lambda | The "transformation brain" - decodes data, flattens Debezium's complex structure, and attaches metadata (table name + operation type) |
-| 5 | Firehose → S3 Tables | Firehose uses Lambda metadata to push data into the correct Iceberg table in S3 |
-| 6 | Query & Governance | Data is ready for query via Amazon Athena or Redshift, governed by AWS Lake Formation |
+Instead of each team rebuilding the same feature multiple times, Data Engineers can create and publish features to the Catalog, allowing Data Scientists and ML Engineers to easily search and reuse them across different projects.
 
 ---
 
-## 3. The Intelligent Data Transformation Mechanism
+## 2. Key Benefits
 
-The most interesting aspect of this solution is how Lambda maps Debezium operation codes to Firehose:
-
-| Debezium Code | Meaning | Firehose Operation |
-|---|---|---|
-| `c` (Create) / `r` (Read) | Insert | → **Insert** into Iceberg table |
-| `u` (Update) | Update | → **Upsert** based on primary key |
-| `d` (Delete) | Delete | → **Delete** the corresponding row |
-
-Thanks to this mechanism, the destination table in S3 Tables is always a **perfect replica** of the current state of the source database.
+| Benefit | Description |
+|---|---|
+| **Effective Feature Reuse** | Built features can be shared across multiple teams and models, reducing redundant data processing efforts. |
+| **Centralized Management** | All features are stored and managed in a single system, making it easy to track lineage, versions, and access permissions. |
+| **Ensure Data Consistency** | Features used during model training and evaluation always share the same definition, reducing the risk of skewed results. |
+| **Accelerate AI/ML Development** | Data Scientists can quickly find and use existing features instead of building them from scratch, significantly shortening model deployment time. |
 
 ---
 
-## 4. Rapid Deployment with AWS CDK
+## 3. How It Works
 
-Instead of manually configuring each service, you can deploy the entire infrastructure as code using **AWS CDK**. The process includes:
+The solution utilizes **Amazon S3 Tables** combined with **Apache Iceberg** for feature data storage. Consequently, the system supports:
+- Data versioning.
+- Time travel (querying data at specific past times).
+- Data lineage tracking.
+- Feature sharing across multiple projects and teams.
 
-1. Enable `logical_replication` on Aurora.
-2. Package and register the Debezium plugin on MSK Connect.
-3. Use `cdk deploy` to instantiate all **6 resource stacks** - from the MSK cluster to the S3 Tables bucket.
-
-This solution helps you build a near-real-time **Data Lakehouse** that is highly cost-optimized by merging multiple tables into a single data stream. If you're looking for a modern way to synchronize transactional data for analytics, this is the answer.
+Once created, features are registered in SageMaker Catalog, where users can search, discover, and request access permissions as needed.
 
 ---
 
-## Key Takeaways
+## 4. Business Value
 
-- **CDC + Iceberg = Real-time analytics without query pressure on Aurora**
-- Merging multiple tables into one Kafka topic significantly reduces cost
-- Lambda is the bridge between Debezium's format and Firehose's expectations
-- AWS CDK makes this entire infrastructure reproducible and version-controlled
+Building an Offline Feature Store helps enterprises standardize their Machine Learning data management workflows, reduce duplication during development, enhance team collaboration, and accelerate the deployment of AI models into production.
+
+**In short:** SageMaker Unified Studio and SageMaker Catalog provide a centralized feature store that allows more efficient management, sharing, and reuse of data, ultimately boosting productivity for AI/ML projects on AWS.
 
 ---
 
 *Blog image:*
 
-![Blog 1 - Real-time CDC Pipeline](/images/blog1.jpg)
+![Blog 1 - Offline Feature Store](/images/Blog1.jpg)
